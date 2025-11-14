@@ -19,7 +19,7 @@ EWifiConnector::EWifiConnector(Button* btn) {
 // Если кнопка нажата - останавливаем вывод на все дисплеи
 bool EWifiConnector::stopAllDisplayShow() {
     if (_btn_state) return true;  // 1 - вывод запрещен
-    else return false;              // 0 - вывод разрешен
+    else return false;            // 0 - вывод разрешен
 }
 
 //---------------------------------------------------------------------------------------------
@@ -159,9 +159,14 @@ void EWifiConnector::STA_static_ip_Start() {
     ia_STA_ip.fromString(_STA_ip);
     ia_STA_gateway.fromString(_STA_gateway);
     ia_STA_subnet.fromString(_STA_subnet);
+    ia_STA_primary_dns.fromString(_STA_primaryDNS);
+    ia_STA_secondar_dns.fromString(_STA_secondaryDNS);
+
     // Serial.println(ia_STA_ip);
 
-    if (!WiFi.config(ia_STA_ip, ia_STA_gateway, ia_STA_subnet)) {
+    //    IPAddress primaryDNS(8, 8, 8, 8);
+
+    if (!WiFi.config(ia_STA_ip, ia_STA_gateway, ia_STA_subnet, ia_STA_primary_dns, ia_STA_secondar_dns)) {
         Serial.println("STA Failed to configure");
     }
 
@@ -182,6 +187,14 @@ void EWifiConnector::set_sta_static_gateway(const char* STA_gateway) {
 //---------------------------------------------------------------------------------------------
 void EWifiConnector::set_sta_static_subnet(const char* STA_subnet) {
     _STA_subnet = STA_subnet;
+}
+//---------------------------------------------------------------------------------------------
+void EWifiConnector::set_sta_static_primary_dns(const char* STA_primaryDNS) {
+    _STA_primaryDNS = STA_primaryDNS;
+}
+//---------------------------------------------------------------------------------------------
+void EWifiConnector::set_sta_static_secondary_dns(const char* STA_secondaryDNS) {
+    _STA_secondaryDNS = STA_secondaryDNS;
 }
 //---------------------------------------------------------------------------------------------
 void EWifiConnector::set_sta_ssid(const char* STA_ssid) {

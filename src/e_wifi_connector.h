@@ -31,6 +31,8 @@ class EWifiConnector {
     void set_sta_static_ip(const char* STA_ip);
     void set_sta_static_gateway(const char* STA_gateway);
     void set_sta_static_subnet(const char* STA_subnet);
+    void set_sta_static_primary_dns(const char* STA_primaryDNS);
+    void set_sta_static_secondary_dns(const char* STA_secondaryDNS);
     void set_sta_ssid(const char* STA_ssid);
     void set_sta_password(const char* STA_password);
 
@@ -62,11 +64,13 @@ class EWifiConnector {
     const char* _STA_ip;
     const char* _STA_gateway;
     const char* _STA_subnet;
+    const char* _STA_primaryDNS;
+    const char* _STA_secondaryDNS;        
     IPAddress ia_STA_ip;
     IPAddress ia_STA_gateway;
     IPAddress ia_STA_subnet;
-    // const char* _STA_ssid;
-    // const char* _STA_password;
+    IPAddress ia_STA_primary_dns;
+    IPAddress ia_STA_secondar_dns;        
 
     TimerMs* _tmr;
     Button* _btn;

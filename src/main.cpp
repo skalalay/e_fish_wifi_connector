@@ -54,6 +54,8 @@ void setup() {
         wc.set_sta_static_ip(db[kk::STA_ip].c_str());
         wc.set_sta_static_gateway(db[kk::STA_gateway].c_str());
         wc.set_sta_static_subnet(db[kk::STA_subnet].c_str());
+        wc.set_sta_static_primary_dns(db[kk::STA_primaryDNS].c_str());
+        wc.set_sta_static_secondary_dns(db[kk::STA_secondaryDNS].c_str());        
         wc.set_sta_ssid(db[kk::STA_ssid].c_str());
         wc.set_sta_password(db[kk::STA_password].c_str());
         wc.STA_static_ip_Start();
@@ -65,6 +67,8 @@ void setup() {
     sett.onUpdate(update);
 
     db.dump(Serial);
+
+    delay(2000);
 }
 
 void loop() {

@@ -17,7 +17,7 @@ void init_db();
 
 // };
 
-struct Data_var { // Все переменные
+struct Data_var {  // Все переменные
     // float temp_1;
 
     // String time_from_rtc;
@@ -26,7 +26,7 @@ struct Data_var { // Все переменные
     // uint32_t time_from_rtc;  // время из RTC
     // uint32_t date_for_rtc;  // время из вебморды для синронизации RTC
     // uint32_t time_for_rtc;  // время из вебморды для синронизации RTC
-    // uint32_t date_time_for_rtc;  // время из вебморды для синронизации RTC    
+    // uint32_t date_time_for_rtc;  // время из вебморды для синронизации RTC
 };
 
 struct Data_const {
@@ -52,6 +52,8 @@ DB_KEYS(
     STA_password,
     STA_ip,
     STA_gateway,
-    STA_subnet);
+    STA_subnet,
+    STA_primaryDNS,
+    STA_secondaryDNS);
 
 #endif

@@ -12,7 +12,7 @@ void build(sets::Builder& b) {
         static int8_t flag_dt = 0;   // флаг открытия настроек даты и время
         static int8_t flag_tcp = 0;  // флаг открытия настроек tcp
 
-        b.Label("lbl_1"_h, "wifi_fish", "tests");
+        b.Label("lbl_1"_h, "e_fish_wifi_connector", "tests");
         // b.Label("lbl_1"_h, "d00010002", var_data.time_from_rtc);        
 
         // if (b.Switch("sw_dt"_h, "Время и Дата", &sw_dt)) {
@@ -46,6 +46,9 @@ void build(sets::Builder& b) {
             b.Input(kk::STA_ip, "IP address");
             b.Input(kk::STA_gateway, "Gateway");
             b.Input(kk::STA_subnet, "Subnet mask");
+            b.Input(kk::STA_primaryDNS, "Primary DNS");
+            b.Input(kk::STA_secondaryDNS , "Secondary DNS");            
+            
             if (b.Button("btn1"_h, "Сохранить и перезагрузить", sets::Colors::Red)) {
                 Serial.println("Button 1");
                 db[kk::WIFI_mode] = 2;

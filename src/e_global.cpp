@@ -12,4 +12,6 @@ void init_db() {
     db.init(kk::STA_ip, "192.168.1.116");
     db.init(kk::STA_gateway, "192.168.1.1");
     db.init(kk::STA_subnet, "255.255.255.0");
+    db.init(kk::STA_primaryDNS, "8.8.8.8");
+    db.init(kk::STA_secondaryDNS, "8.8.4.4");
 }
